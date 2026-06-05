@@ -93,7 +93,7 @@ function Intro() {
         transition={{ delay: 0.2 }}
         className="font-display mt-4 text-2xl font-semibold tracking-tight text-evergreen"
       >
-        Arcelis
+        Aracelis
       </motion.span>
       <Title className="mt-8 text-evergreen">
         Better healthcare.

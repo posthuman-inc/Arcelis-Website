@@ -26,7 +26,7 @@ export function Nav() {
           scrolled ? "glass shadow-soft" : "bg-transparent"
         }`}
       >
-        <a href="#top" aria-label="Arcelis home">
+        <a href="#top" aria-label="Aracelis home">
           <Wordmark />
         </a>
         <a

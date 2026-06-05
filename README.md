@@ -1,4 +1,4 @@
-# Arcelis — Section 125 Expo Intake
+# Aracelis — Section 125 Expo Intake
 
 Mobile-first, animated landing page for the San Francisco Small Business Expo.
 Someone walks the floor with a QR code → prospect scans → lands here → learns

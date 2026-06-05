@@ -27,11 +27,11 @@ const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
-  title: "Arcelis — Better healthcare. Bigger paychecks. No net cost.",
+  title: "Aracelis — Better healthcare. Bigger paychecks. No net cost.",
   description:
-    "Arcelis sets your company up with a Section 125 wellness plan in about an hour. Employees take home more, the company saves on payroll tax, and your team gets real preventive care. Book your onboarding call.",
+    "Aracelis sets your company up with a Section 125 wellness plan in about an hour. Employees take home more, the company saves on payroll tax, and your team gets real preventive care. Book your onboarding call.",
   openGraph: {
-    title: "Arcelis — Better healthcare. Bigger paychecks. No net cost.",
+    title: "Aracelis — Better healthcare. Bigger paychecks. No net cost.",
     description:
       "A Section 125 wellness plan that pays for itself. One painless hour to set up. Book your onboarding call.",
     type: "website",
