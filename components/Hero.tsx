@@ -6,7 +6,7 @@ import { MagneticButton, staggerContainer, staggerItem } from "./primitives";
 const chips = [
   { label: "+$92.58 / mo take-home", tone: "honey" },
   { label: "$0 copay urgent care", tone: "jade" },
-  { label: "~$682 / yr saved per employee", tone: "clay" },
+  { label: "~$700 / employee in payroll tax", tone: "clay" },
 ];
 
 export function Hero() {
@@ -119,7 +119,7 @@ export function Hero() {
         transition={{ delay: 1.4 }}
         className="relative z-10 mx-auto mt-16 flex w-fit flex-col items-center gap-2 text-xs text-stone-soft"
       >
-        <span>One painless hour. That&apos;s the whole lift.</span>
+        <span>One hour to set up. Five minutes a month after.</span>
         <motion.span
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity }}

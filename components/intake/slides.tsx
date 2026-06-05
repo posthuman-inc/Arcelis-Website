@@ -126,24 +126,33 @@ function Promise() {
     <div className="text-center">
       <Eyebrow tone="honey">The whole ask</Eyebrow>
       <Title className="mt-5 text-cream">
-        One painless hour.
+        One hour to start.
         <br />
-        That&apos;s the entire lift.
+        Five minutes a month after.
       </Title>
       <Lead className="mx-auto max-w-md text-mint/85">
-        We handle the setup, the paperwork, and your payroll provider. If it ever
-        takes more than about an hour of your time, we are doing it wrong, and we
-        will not push you to keep going.
+        That hour is a <span className="text-honey">one-time</span> onboarding. We
+        handle the paperwork and your payroll provider. After that, keeping it
+        running takes about five minutes a month: you just log into the portal.
       </Lead>
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ delay: 0.35, type: "spring", stiffness: 180, damping: 16 }}
-        className="mt-10 inline-flex items-baseline gap-2 rounded-full border border-mint/20 bg-mint/5 px-7 py-4"
-      >
-        <span className="font-display text-5xl font-semibold text-honey">~1</span>
-        <span className="text-lg text-mint/85">hour, start to finish</span>
-      </motion.div>
+      <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row">
+        {[
+          { big: "~1 hr", small: "one-time setup", note: "we do the heavy lifting" },
+          { big: "~5 min", small: "per month after", note: "just a quick portal login" },
+        ].map((p, i) => (
+          <motion.div
+            key={p.small}
+            initial={{ opacity: 0, scale: 0.9, y: 12 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ delay: 0.3 + i * 0.12, type: "spring", stiffness: 180, damping: 16 }}
+            className="flex flex-col items-center rounded-2xl border border-mint/20 bg-mint/5 px-7 py-5"
+          >
+            <span className="font-display text-4xl font-semibold text-honey">{p.big}</span>
+            <span className="mt-1 text-base font-medium text-cream">{p.small}</span>
+            <span className="text-xs text-mint/70">{p.note}</span>
+          </motion.div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -231,9 +240,14 @@ function Employer() {
   return (
     <div className="text-center">
       <Eyebrow tone="honey">Your company</Eyebrow>
-      <Title className="mt-5 text-cream">It scales with your team.</Title>
+      <Title className="mt-5 text-cream">
+        Save ~$700 per employee
+        <br />
+        on payroll tax.
+      </Title>
       <Lead className="mx-auto max-w-md text-mint/85">
-        Drag to your headcount. Roughly 80% typically participate.
+        Every year, on each participating employee. Drag to your headcount —
+        roughly 80% typically take part — and watch it add up.
       </Lead>
       <motion.div
         initial={{ opacity: 0, y: 24 }}
@@ -315,26 +329,45 @@ function Care() {
 /* ---------- Slide: How it works ---------- */
 function How() {
   const steps = [
-    { t: "Book your call", d: "Grab a slot. We walk you through everything." },
-    { t: "We model your numbers", d: "A simple census, your real savings." },
-    { t: "We handle payroll", d: "We coordinate directly with your provider." },
-    { t: "Your team is enrolled", d: "Bigger paychecks and real care, live." },
+    { t: "Book your call", d: "Grab a slot. We walk you through everything.", once: true },
+    { t: "We model your numbers", d: "A simple census, your real savings.", once: true },
+    { t: "We handle payroll", d: "We coordinate directly with your provider.", once: true },
+    { t: "Your team is enrolled", d: "Bigger paychecks and real care, live.", once: true },
+    { t: "Maintain in minutes", d: "~5 min a month — just log into the portal.", once: false },
   ];
   return (
     <div>
       <div className="text-center">
         <Eyebrow>How it works</Eyebrow>
-        <Title className="mt-5 text-evergreen">About an hour. That&apos;s it.</Title>
+        <Title className="mt-5 text-evergreen">One hour to set up. Minutes to run.</Title>
       </div>
       <div className="mx-auto mt-8 max-w-md">
         <StaggerList>
           {steps.map((s, i) => (
-            <div key={s.t} className="surface flex items-start gap-4 rounded-2xl p-4 text-left">
-              <span className="font-display flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-mint/40 text-sm font-semibold text-pine">
-                {i + 1}
+            <div
+              key={s.t}
+              className={`surface flex items-start gap-4 rounded-2xl p-4 text-left ${
+                s.once ? "" : "border-honey/30 bg-honey/5"
+              }`}
+            >
+              <span
+                className={`font-display flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${
+                  s.once ? "bg-mint/40 text-pine" : "bg-honey/25 text-amber"
+                }`}
+              >
+                {s.once ? i + 1 : "↻"}
               </span>
               <div>
-                <p className="font-semibold leading-tight text-evergreen">{s.t}</p>
+                <div className="flex items-center gap-2">
+                  <p className="font-semibold leading-tight text-evergreen">{s.t}</p>
+                  <span
+                    className={`rounded-full px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide ${
+                      s.once ? "bg-mint/40 text-pine" : "bg-honey/20 text-amber"
+                    }`}
+                  >
+                    {s.once ? "one-time" : "ongoing"}
+                  </span>
+                </div>
                 <p className="mt-0.5 text-sm text-stone">{s.d}</p>
               </div>
             </div>

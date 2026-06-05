@@ -29,6 +29,13 @@ const steps = [
     body: "We run enrollment and your people are covered. Bigger paychecks and real care, up and running.",
     time: "Done",
   },
+  {
+    n: "↻",
+    title: "Maintain in minutes",
+    body: "That one hour was a one-time setup. From here on it's about five minutes a month: you just log into the portal. That's the entire ongoing commitment.",
+    time: "~5 min / month",
+    ongoing: true,
+  },
 ];
 
 export function HowItWorks() {
@@ -47,12 +54,12 @@ export function HowItWorks() {
             How it works
           </p>
           <h2 className="font-display mt-4 text-balance text-4xl font-semibold leading-[1.05] tracking-tight text-evergreen sm:text-5xl">
-            About an hour. That&apos;s it.
+            One hour to set up. Minutes to run.
           </h2>
           <p className="mt-5 text-pretty text-lg leading-relaxed text-stone">
-            The whole setup asks for roughly an hour of your time. If it ever
-            takes more than that, we are doing it wrong, and we will not push you
-            to keep going.
+            Setup is a one-time hour of your time, and we do the heavy lifting.
+            After that, keeping the plan running is about five minutes a month: a
+            quick portal login. That&apos;s the whole ongoing commitment.
           </p>
         </Reveal>
 
@@ -68,14 +75,22 @@ export function HowItWorks() {
             {steps.map((s, i) => (
               <Reveal key={s.n} delay={i * 0.05}>
                 <div className="relative">
-                  <span className="absolute -left-12 flex h-10 w-10 items-center justify-center rounded-full border border-evergreen/12 bg-paper font-display text-sm font-semibold text-jade shadow-soft">
+                  <span
+                    className={`absolute -left-12 flex h-10 w-10 items-center justify-center rounded-full border bg-paper font-display text-sm font-semibold shadow-soft ${
+                      s.ongoing ? "border-honey/30 text-amber" : "border-evergreen/12 text-jade"
+                    }`}
+                  >
                     {s.n}
                   </span>
                   <div className="flex flex-wrap items-center gap-3">
                     <h3 className="font-display text-xl font-semibold tracking-tight text-evergreen">
                       {s.title}
                     </h3>
-                    <span className="rounded-full bg-mint/40 px-3 py-1 text-xs font-medium text-pine">
+                    <span
+                      className={`rounded-full px-3 py-1 text-xs font-medium ${
+                        s.ongoing ? "bg-honey/20 text-amber" : "bg-mint/40 text-pine"
+                      }`}
+                    >
                       {s.time}
                     </span>
                   </div>
