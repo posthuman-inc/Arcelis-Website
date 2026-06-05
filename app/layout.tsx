@@ -16,7 +16,12 @@ const fraunces = Fraunces({
   axes: ["opsz", "SOFT", "WONK"],
 });
 
+const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
+  ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+  : "http://localhost:3000";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: "Arcelis — Better healthcare. Bigger paychecks. No net cost.",
   description:
     "Arcelis sets your company up with a Section 125 wellness plan in about an hour. Employees take home more, the company saves on payroll tax, and your team gets real preventive care. Book your onboarding call.",
