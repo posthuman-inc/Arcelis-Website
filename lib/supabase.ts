@@ -1,15 +1,18 @@
 import { createClient } from "@supabase/supabase-js";
 
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+// The anon/publishable key is public by design — it ships in the browser bundle
+// regardless, and RLS (public.leads is insert-only, no read) is what protects
+// data. So these are safe defaults that let the deploy work with zero config.
+// Env vars still override them for staging/other projects. NEVER put the
+// service_role key or the sbp_ management token here.
+const url =
+  process.env.NEXT_PUBLIC_SUPABASE_URL ||
+  "https://qgcxitrxxishmhwdfkxz.supabase.co";
+const anonKey =
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
+  "sb_publishable_7F7tKv_Uux5xGQ-y0xJP3Q_Bh08_gbL";
 
-if (!url || !anonKey) {
-  // Surfaced at build/runtime so a missing env var never fails silently.
-  console.warn("[arcelis] Supabase env vars are not set. Lead capture will be disabled.");
-}
-
-export const supabase =
-  url && anonKey ? createClient(url, anonKey) : null;
+export const supabase = createClient(url, anonKey);
 
 export type LeadInput = {
   full_name: string;
