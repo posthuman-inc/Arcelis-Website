@@ -16,9 +16,14 @@ const fraunces = Fraunces({
   axes: ["opsz", "SOFT", "WONK"],
 });
 
+// metadataBase makes og:image / twitter:image absolute. VERCEL_PROJECT_PRODUCTION_URL
+// is only injected by Vercel's own build infra, NOT by a local `vercel build`, so we
+// fall back to the known production URL for any production build.
 const baseUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL
   ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  : "http://localhost:3000";
+  : process.env.NODE_ENV === "production"
+    ? "https://arcelis-website-alpha.vercel.app"
+    : "http://localhost:3000";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
