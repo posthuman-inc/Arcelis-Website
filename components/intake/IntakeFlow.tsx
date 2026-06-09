@@ -54,22 +54,30 @@ export function IntakeFlow() {
 
   return (
     <div className="fixed inset-0 overflow-hidden">
-      {/* Progress segments */}
-      <div className="absolute inset-x-0 top-0 z-30 flex gap-1.5 px-4 pt-4">
+      {/* Progress tabs — click to jump to a slide */}
+      <div className="absolute inset-x-0 top-0 z-40 flex gap-1.5 px-4 pt-4">
         {Array.from({ length: TOTAL }).map((_, i) => (
-          <div
+          <button
             key={i}
-            className="h-1 flex-1 overflow-hidden rounded-full"
-            style={{ background: dark ? "rgba(207,227,216,0.22)" : "rgba(17,51,46,0.12)" }}
+            type="button"
+            onClick={() => go(i, i >= index ? 1 : -1)}
+            aria-label={`Go to step ${i + 1} of ${TOTAL}`}
+            aria-current={i === index ? "step" : undefined}
+            className="group relative -my-2 flex-1 cursor-pointer py-2"
           >
-            <motion.div
-              className="h-full rounded-full"
-              style={{ background: dark ? "var(--color-honey)" : "var(--color-jade)" }}
-              initial={false}
-              animate={{ width: i <= index ? "100%" : "0%" }}
-              transition={{ duration: 0.4, ease }}
-            />
-          </div>
+            <span
+              className="block h-1 overflow-hidden rounded-full transition-transform duration-200 group-hover:scale-y-[2]"
+              style={{ background: dark ? "rgba(207,227,216,0.22)" : "rgba(17,51,46,0.12)" }}
+            >
+              <motion.span
+                className="block h-full rounded-full"
+                style={{ background: dark ? "var(--color-honey)" : "var(--color-jade)" }}
+                initial={false}
+                animate={{ width: i <= index ? "100%" : "0%" }}
+                transition={{ duration: 0.4, ease }}
+              />
+            </span>
+          </button>
         ))}
       </div>
 
