@@ -59,7 +59,7 @@ export function Hero() {
           variants={staggerItem}
           className="mt-6 max-w-xl text-pretty text-[1.05rem] leading-relaxed text-stone sm:text-lg"
         >
-          Aracelis sets your company up on a Section 125 wellness plan in about an
+          Arcelis sets your company up on a Section 125 wellness plan in about an
           hour. Your people take home more each month and get real preventive
           care. The company trims its payroll tax. Everybody wins.
         </motion.p>

@@ -58,7 +58,7 @@ export function Paycheck() {
                   className="w-full max-w-[120px] rounded-t-2xl bg-cream-deep"
                 />
                 <span className="mt-4 text-center text-sm font-medium text-stone">
-                  Without Aracelis
+                  Without Arcelis
                 </span>
               </div>
 
@@ -84,7 +84,7 @@ export function Paycheck() {
                   </motion.span>
                 </motion.div>
                 <span className="mt-4 text-center text-sm font-medium text-evergreen">
-                  With Aracelis
+                  With Arcelis
                 </span>
               </div>
             </div>

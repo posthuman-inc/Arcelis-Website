@@ -11,9 +11,9 @@ import { LeadForm } from "@/components/LeadForm";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Aracelis — The full picture",
+  title: "Arcelis — The full picture",
   description:
-    "Everything about the Aracelis Section 125 wellness plan: how everybody wins, the paycheck math, the care bundle, and how to get started.",
+    "Everything about the Arcelis Section 125 wellness plan: how everybody wins, the paycheck math, the care bundle, and how to get started.",
 };
 
 export default function Explore() {

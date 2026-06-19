@@ -23,7 +23,7 @@ export function Footer() {
         </a>
       </div>
       <div className="mx-auto mt-10 flex max-w-6xl flex-col gap-2 border-t border-evergreen/8 pt-6 text-xs text-stone-soft sm:flex-row sm:items-center sm:justify-between">
-        <span>© {new Date().getFullYear()} Aracelis. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Arcelis. All rights reserved.</span>
         <span className="max-w-lg">
           Figures shown are illustrative examples for education only and are not
           tax advice. Actual results depend on your census and are confirmed
