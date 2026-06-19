@@ -85,7 +85,7 @@ export function IntakeFlow() {
       <div className={`absolute inset-x-0 top-0 z-30 flex items-center justify-between px-5 pt-8 transition-colors duration-500 ${chrome}`}>
         <span className="flex items-center gap-2">
           <Logomark className="h-7 w-7" />
-          <span className="font-display text-lg font-semibold tracking-tight">Aracelis</span>
+          <span className="font-display text-lg font-semibold tracking-tight">Arcelis</span>
         </span>
         {!isBook && (
           <button
