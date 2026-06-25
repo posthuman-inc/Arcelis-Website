@@ -129,8 +129,8 @@ export function IntakeFlow() {
             </div>
           )}
 
-          <div className="relative z-10 flex h-full flex-col items-center justify-center overflow-y-auto px-6 py-24">
-            <div className="w-full max-w-xl">{isBook ? <BookSlide /> : SLIDES[index].node}</div>
+        <div className="relative z-10 flex h-full flex-col items-center overflow-y-auto px-6 pt-24 pb-36">
+            <div className="my-auto w-full max-w-xl">{isBook ? <BookSlide /> : SLIDES[index].node}</div>
           </div>
         </motion.div>
       </AnimatePresence>
